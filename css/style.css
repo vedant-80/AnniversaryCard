@@ -201,18 +201,23 @@ font-family: 'Lobster', cursive;
   text-align: center;
 }
 
-.cake_and_velas {
+.duck_hippo_animation {
   position: absolute;
-  bottom: 25%;
+  bottom: 15%;
   left: 0;
   right: 0;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#cake {
+#duck-hippo {
   display: block;
   position: relative;
-  margin: -10em auto 0 auto;
+  margin: 0 auto;
+  max-width: 300px;
+  max-height: 400px;
 }
 
 .velas {
@@ -379,7 +384,7 @@ font-family: 'Lobster', cursive;
 
 .polaroid {
   width: 240x;
-  height: 220px;
+  height: 350px;
   position: absolute;
   float: left;
   background: #1e1c18;
@@ -405,8 +410,8 @@ font-family: 'Lobster', cursive;
           backface-visibility: hidden;
   background-position: center;
   background-size: cover;
-  -webkit-animation: fade-in 20s ease-in;
-          animation: fade-in 20s ease-in;
+  -webkit-animation: fade-in 10s ease-in;
+          animation: fade-in 10s ease-in;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
 }
@@ -425,11 +430,108 @@ font-family: 'Lobster', cursive;
   }
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
+/* Duck and Hippo Animations */
+.duck-body, .duck-head {
+  animation: duck-bounce 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.duck-wing {
+  animation: wing-flap 0.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.duck-beak {
+  animation: beak-peck 1.5s ease-in-out infinite;
+}
+
+.hippo-head {
+  animation: hippo-nod 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.hippo-mouth {
+  animation: smile 2s ease-in-out infinite;
+  transform-origin: 150px 280px;
+}
+
+.heart1 {
+  animation: float-heart1 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.heart2 {
+  animation: float-heart2 3.5s ease-in-out infinite;
+  transform-origin: center;
+  animation-delay: 0.5s;
+}
+
+@keyframes duck-bounce {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  to {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes wing-flap {
+  0%, 100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  50% {
+    transform: rotate(-15deg) scaleY(0.9);
+  }
+}
+
+@keyframes beak-peck {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes hippo-nod {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(2deg);
+  }
+}
+
+@keyframes smile {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.2);
+  }
+}
+
+@keyframes float-heart1 {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-15px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes float-heart2 {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.15);
     opacity: 1;
   }
 }
